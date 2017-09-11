@@ -1,0 +1,3 @@
+To open part 1, simply click on the file to open the html within a browser, likely whatever you have set as your default. Select a septa route that you would like to track and hit the submit button. The selected route will then be displayed below as a table.
+
+To use part to, open a terminal and enter "node Part2.js" to start your server. Open a browser like Chrome and enter http://localhost:8080/part2?message=hello&count=4 as your URL. This will print a specified message, whatever you set it equal to, and print it the number of times that count is set equal to. This utilizes the GET method of nodejs.

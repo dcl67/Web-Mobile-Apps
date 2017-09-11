@@ -1,0 +1,6 @@
+CS275 Project 3 - dcl67
+To run the server, type in 
+
+$ node server.js
+
+into your terminal to run the nodejs server. Open a browser and go to http://localhost:8080. Once there, enter a positive integer into the input field and select a type of calculation using the dropdown box. Your two options are N-factorial and Summation, which respectively will calculate N factorial (n * n-1 * n-2 * ... * 1), or sum N from 1 to N (1 + 2 + ... + N). Pressing submit will send the number and selection over to a server which will handle the calculation, return text and the result, and display it underneath the input box.

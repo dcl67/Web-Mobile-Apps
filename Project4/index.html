@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lab 4</title>
+</head>
+<body>
+<style>
+.image_block a  {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+}
+.content{
+margin-top: 2px;
+margin-left: 2px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"> </link>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/JavaScript" src="client.js"></script>
+<!-- Display a banner fixed to top of page -->
+
+<div data-role="page">
+
+<div data-role="panel" id="myPanel" data-position="left" data-display="push">
+<!-- Display left-side navigation links -->
+		<a class="nav_link" href=".">Home</a>
+		<br>
+		<a class="nav_link" onclick="displayCalc()" href="/#">Calculation</a>
+		<br>
+		<a class="nav_link" onclick="displayWeather()" href="/#">Weather</a>
+</div>
+<!-- Dynamic content area -->
+<div data-role="header" data-rel="close"> <!--class="content" id="content">-->
+	<a href="#myPanel">Menu</a>
+		<h1>CS 275 -- Assignment 4</h1>
+</div>
+<div id="content" data-role="content" style="padding:0px;">
+
+</div>
+<div class="image_block">
+	<img src="cci.png" class="banner_img" style="padding-left: 30%;">
+	</div>
+</div>
+
+</body>
+</html>

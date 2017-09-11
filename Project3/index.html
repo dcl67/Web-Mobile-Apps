@@ -1,0 +1,44 @@
+<!doctype HTML>
+<html>
+
+<head>
+	<title>CS275: Project 3</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+	<div id=handleInput">
+		<input type="text" id="int"/>
+		<select id="combo">
+			<option>N-factorial</option>
+			<option>Summation</option>
+		</select>
+		<button type="button btn-info" onclick="calc()">Submit</input>
+	</div>
+	<div id="Calculation">
+	</div>
+</body>
+
+<script>
+function calc(){
+	var choice = document.getElementById("combo").value;
+	var n = parseInt(document.getElementById("int").value);
+	//var n = parseInt(num);
+	if (n<=0){ // if negative integer
+		alert("Please enter a positive integer greater than 0.");
+	}
+	else if (n>0){ // if positive integer
+		$.ajax({
+			dataType: "html",
+			url: "http://localhost:8080/" + document.getElementById("combo").value,
+			data: {"n" : document.getElementById("int").value},
+			success: function(pass){
+				document.getElementById("Calculation").innerHTML=pass;
+			}
+		});
+	}
+	else{ // if empty or anything else
+		alert("Invalid input- please enter an integer.");
+	}
+}
+
+</script>

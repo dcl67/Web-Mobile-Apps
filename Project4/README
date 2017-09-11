@@ -1,0 +1,8 @@
+CS275 - Project 4
+For this assignment, we are tasked with creating a mobile-friendly application that combines the weather underground API and the sum + factorial calculator into one app.
+
+To start, open a terminal and navigate to whichever directory the file is located in. With node isntalled, enter "node server.js" to start the nodejs server. Next, open your favorite browser up and navigate to the URL: "http://localhost:8080". This will take you to your webpage. Clicking on the menu button will open a side panel where you can select weather or calculator.
+
+In weather, simply press the "Get Weather" button to have Weather Underground API retrieve your zip code via IP address, then retrieve your forecast for that zip code.
+
+For the calculator, enter an integer, then select the type of calculation you would like to have performed, then click submit. Your entered integer and the calculation will be displayed below the input and selection box.

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lab 5</title>
+<!-- Import libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"> </link>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/JavaScript" src="client.js"></script>
+</head>
+<body>
+<style>
+.image_block a  {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+}
+.content{
+margin-top: 2px;
+margin-left: 2px;
+}
+</style>
+
+<!-- Navigational links for the application-->
+<div data-role="page">
+
+<div data-role="panel" id="myPanel" data-position="left" data-display="push">
+		<a class="nav_link" href=".">Home</a>
+		<br>
+		<a class="nav_link" onclick="displayTable()" href="#">Database Tables</a>
+		<br>
+		<a class="nav_link" onclick="displayTranscript()" href="#">Student Transcripts</a>
+		<br>
+		<a class="nav_link" onclick="displayStudentPage()" href="#">Add Student</a>
+	</nav>
+</div>
+<!-- Dynamic content area -->
+<div data-role="header" data-rel="close">
+	<a href="#myPanel">Menu</a>
+		<h1>CS 275 -- Assignment 5</h1>
+</div>
+
+<div id="content" data-role="content" style="padding:0px;">
+	<h2>Using this app</h2>
+	<p>This application interacts with your MySQL database specifically titled "lab5". You can view your student and class tables in tabular form, your students' transcripts for their classes, and functionality for adding students to the database.
+	</p>
+</div>
+<div class="image_block">
+	<img src="cci.png" class="banner_img" style="padding-left: 30%;">
+	</div>
+</div>
+</body>
+</html>

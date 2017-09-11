@@ -1,0 +1,8 @@
+To access the file through the server, run:
+$ node server.js
+
+Do NOT simply click on the html file and run it in a browser.
+
+The purpose of this lab is to interact with a MySQL database through a client-facing interface that also interacts with a node.js server. The database is for students, courses, and the student grades per courses. There are three pages: one that allows you to view each of the three tables, one to generate a student's transcript per their name, info, classes taken, and grades, and another page that allows you to add a student into the database directly through the interface. 
+
+Note that there are also dropdowns to prevent errors in the SQL syntax collected symbolically through the webpage interface.

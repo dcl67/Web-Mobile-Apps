@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<style>
+table, th, td {border: 1px solid black; width: 11%;}
+
+</style>
+
+<html>
+<body>
+
+<h1>Fibonacci numbers</h1>
+<div id="hi Yash"></div>
+<p>The Fibonacci sequence is named after Italian mathematician Leonardo of Pisa, known as Fibonacci. His 1202 book Liber Abaci introduced the sequence to Western European mathematics, although the sequence had been described earlier in Indian mathematics. The sequence described in Liber Abaci began with F1 = 1.</p>
+<p>Fibonacci numbers are closely related to Lucas numbers L_n in that they form a complementary pair of Lucas sequences U_n(1,-1)=F_n and V_n(1,-1)=L_n. They are intimately connected with the golden ratio; for example, the closest rational approximations to the ratio are 2/1, 3/2, 5/3, 8/5, ... .</p>
+<p>Fibonacci numbers appear unexpectedly often in mathematics, so much so that there is an entire journal dedicated to their study, the Fibonacci Quarterly. Applications of Fibonacci numbers include computer algorithms such as the Fibonacci search technique and the Fibonacci heap data structure, and graphs called Fibonacci cubes used for interconnecting parallel and distributed systems. They also appear in biological settings, such as branching in trees, phyllotaxis (the arrangement of leaves on a stem), the fruit sprouts of a pineapple, the flowering of an artichoke, an uncurling fern and the arrangement of a pine cone's bracts.</p>
+
+<p>From Wikipedia's page on 
+	<a href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci numbers</a>.
+</p>
+
+<p><img src="fibonacci.jpg" alt="Fibonacci"></p>
+
+<p>Enter the number of fibonacci numbers you'd like to see:<br/>
+<input type="text" class="input" id="number">
+<button type="Calculate!" class="btn btn-info" onclick="fib()" value="Execute" style="position: right: 0;margin-top: -34px;">Calculate!</button>
+
+<div class="table" id="fibtable">
+	<table>
+		<tbody>
+			<tr>
+				<td width="50px">n</td>
+				<td width="50px">fib(n)</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+</input></p>
+
+<script type="text/javascript">
+function isInt(o){
+	if(o %1 == 0){
+		return true;
+	}
+}
+
+function fib(){
+	var f1=0,f2=1,f3;
+	var i;
+	var table = document.createElement('table'), tr, td, row, cell;
+	var n = document.getElementById('number').value;
+	var element = document.getElementById('fibtable');
+	if(element){
+		parent = element.parentNode;
+		newElement = document.createElement('div');
+		newElement.id = 'fibtable';
+		newElement.innerHTML+="<table><tbody><tr><td>n</td><td>fib(n)</td></tr></table></tbody>";
+		if(n == ""){
+			window.alert("Invalid input");
+		}
+		else if(n < 0){
+			window.alert("Cannot compute Fib of a negative integer");
+		}
+		else if(isInt(n) == true){
+			for(i=1;i<=n;i++){
+				f3=f1+f2;
+				f1=f2;
+				f2=f3;
+				newElement.innerHTML+="<table border='1'><tbody><tr><td border='1'> "+i+"</td> <td border='1' >"+f3+"</td></tr></tbody></table>";
+		
+			}
+		}
+		else{
+			window.alert("Invalid input");
+		}
+	}
+	document.getElementById('fibtable').innerHTML+="</tbody></table>";
+	parent.insertBefore(newElement, element);
+	parent.removeChild(element);
+	return 0;
+}
+</script>
+</body>
+</html>

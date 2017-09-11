@@ -1,0 +1,52 @@
+<!doctype/HTML>
+<html>
+
+<head>
+	<title>CS275 Practicum: Part 1</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+	<div id="handleInput">
+		<select id="choice">
+			<option>6</option>
+			<option>7</option>
+			<option>14</option>
+			<option>17</option>
+			<option>20</option>
+			<option>23</option>
+			<option>31</option>
+			<option>47</option>
+			<option>57</option>
+		</select>
+		<button type="button btn-info" onclick="SEPT()">Submit</button>
+	</div>
+	<div id="display">
+	</div>
+
+<script>
+function SEPT(){
+	document.getElementById("display").innerHTML="<th><td>    Bus</td><td>    Block ID</td><td>     Direction</td><td>     Final Stop</td></th><br/>";
+	var i = 0;
+	var route=document.getElementById("choice").value;
+	console.log(route);
+	$.ajax({
+		type: "GET",
+		url: "http://www3.septa.org/hackathon/TransitView/?route=" + route, //Ajax call for bus route
+		dataType: "jsonp",
+		success: function(msg) {
+			var json = msg;
+			//if(json.response.error==undefined){
+				for (i;i<6;i++){ //loop for weather!
+					var vehicle=json.bus[i].VehicleID;
+					var block=json.bus[i].BlockID;
+					var direction=json.bus[i].Direction;
+					var destination=json.bus[i].destination;
+					document.getElementById("display").innerHTML+="<table><tr> Bus " + vehicle + " at " + block + " headed " + direction + " service to " + destination + "</tr></table><br/>";
+				}
+			//}
+		}
+	});
+}
+</script>
+</body>
+</html>

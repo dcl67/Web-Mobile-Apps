@@ -1,0 +1,56 @@
+<style>
+</style>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+		<link type="text/css" rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"
+		<div data-role="header">CS 275: Weather Application</div>
+	<script>
+		function zipCode(){
+			var code = document.getElementById("APIKey").value; //Retrieve API Key from HTML
+			$.ajax({
+				dataType: "json",
+				url: "https://api.wunderground.com/api/" + code + "/geolookup/q/autoip.json", //Ajax call for zip code
+				success: function(data){
+					var json = data;
+					var zip = json.location.zip; //Save zip in variable
+					requestWeather(code, zip); //Pass zip through to get the weather
+				}
+			});
+		}
+		function requestWeather(code, zip){
+			var i = 0; // Index for loop below
+			var lim = 11; // Limit, left out of loop because of previous errors
+			$.ajax({
+				url: "https://api.wunderground.com/api/"+code+"/hourly/q/"+zip+".json", //Ajax call for hourly weather.
+				dataType: "json",
+				success: function(msg) {
+					var json = msg;
+					if(json.response.error==undefined){
+						for (i;i<lim;i++){ //loop for weather!
+							var forecast = json.hourly_forecast[i].FCTTIME.pretty; //pretty forecast format
+							var temp = json.hourly_forecast[i].temp.english; 
+							var condition = json.hourly_forecast[i].condition;
+							var icon = json.hourly_forecast[i].icon_url; //image corresponding to weather
+							document.getElementById("current").innerHTML+="<table><tr>" + forecast + " " + temp + " F " + condition + " " + "<img src=" + icon + "></tr></table><br/>"; //add all to webpage's html div
+						}
+					}
+				}
+			});
+		}
+	</script>
+	</head>
+
+	<body>
+	<p>
+		<input type="password" id="APIKey" placeholder="Enter your API key here"/>
+		<button type="Submit" class="btn btn-info" onclick="zipCode()" value="Get Weather!">Submit</button>
+	</p>
+	<p>
+		<div id=current></div>
+	</p>
+	</body>
+<div data-role="footer">CS 275: Weather Application</div>
+</html>
